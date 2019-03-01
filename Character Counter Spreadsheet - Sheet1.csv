@@ -1,0 +1,43 @@
+"colums->who strong agaisnt, rows-> weak against",,,,https://www.heropicker.com/overwatch-counters/,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,Ana,Ashe,Bastion,Brigitte,D. Va,Doomfist,Genji,Hanzo,Junkrat,Lucio,Mccree,Mei,Mercy,Moira,Orisa,Pharah,Reaper,Reinhardt,Roadhog,Soldier: 76,Sombra,Symmetra,Torbjorn,Tracer,Widowmaker,Winston,Wrecking Ball,Zarya,Zenyatta
+Hyunjoo,Ana,x,,,,2,,3,,,,,,,,,,,,,,,,,,,,,,
+Hyunjoo,Ashe,,x,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hyunjoo,Bastion,,,x,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hyunjoo,Brigitte,,,,x,,,,,,,,,,,,,,,,,,,,,,,,,
+Hyunjoo,D. Va,,,,,x,,,,,,,,,,,,,,,,,,,,,,,,
+Tyler,Doomfist,,,,,,x,,,,,,,,,,,,,,,,,,,,,,,
+Tyler,Genji,,,,,,,x,,,,,,,,,,,,,,,,,,,,,,
+Tyler,Hanzo,,,,,,,,x,,,,,,,,,,,,,,,,,,,,,
+Tyler,Junkrat,,,,,,,,,x,,,,,,,,,,,,,,,,,,,,
+Tyler,Lucio,,,,,,,,,,x,,,,,,,,,,,,,,,,,,,
+Enrique,Mccree,,,,,,,,,,,x,,,,,,,,,,,,,,,,,,
+Enrique,Mei,,,,,,,,,,,,x,,,,,,,,,,,,,,,,,
+Enrique,Mercy,,,,,,,,,,,,,x,,,,,,,,,,,,,,,,
+Enrique,Moira,,,,,,,,,,,,,,x,,,,,,,,,,,,,,,
+Enrique,Orisa,,,,,,,,,,,,,,,x,,,,,,,,,,,,,,
+Isabelle,Pharah,1,1,0,0,1,0,0,0,0,0,3,0,0,0,0,x,0,0,2,2,0,0,1,0,2,0,0,0,1
+Isabelle,Reaper,0,0,0,0,0,0,1,1,2,0,3,0,0,0,0,3,x,0,0,0,0,0,0,0,1,0,0,0,0
+Isabelle,Reinhardt,0,0,3,1,0,2,0,0,2,0,0,2,0,1,1,2,3,x,1,0,1,1,1,0,0,0,0,0,0
+Isabelle,Roadhog,1,0,0,0,2,0,1,0,0,0,0,3,0,0,0,0,3,0,x,0,0,0,0,0,0,0,0,2,1
+Isabelle,Soldier: 76,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1,0,0,2,2,x,0,0,0,1,1,0,0,0,0
+Mihir,Sombra,,,,,,,,2,2,,,2,,,,2,,,2,,x,2,,,,2,,,
+Mihir,Symmetra,,,,,,,,,2,,2,,,,,3,2,,2,2,,x,,,2,2,,,
+Mihir,Torbjorn,,,,,,,,2,2,,,,,,,2,2,,,2,,,x,,2,,,2,
+Mihir,Tracer,,,3,,,,,,,,2,2,,,,2,,,2,,,,2,x,,2,,,
+jessie,Widowmaker,,,,,,,,,,,,,,,,,,,,,,,,,x,,,,
+jessie,Winston,,,,,,,,,,,,,,,,,,,,,,,,,,x,,,
+jessie,Wrecking Ball,,,,,,,,,,,,,,,,,,,,,,,,,,,x,,
+jessie,Zarya,,,,,,,,,,,,,,,,,,,,,,,,,,,,x,
+jessie,Zenyatta,,,,,,,,,,,,,,,,,,,,,,,,,,,,,x
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Scale,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,0,Neutral,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,1,Weak ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,2,Counter,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,3,Strong,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Hero is (),against ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+row - left to right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+cilumn - up/down,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
