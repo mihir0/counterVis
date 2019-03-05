@@ -15,9 +15,9 @@ if __name__ == "__main__": # main method
                 row = row[1:] #trim row
                 node_a = Node(row[0])
                 for item_position, item in enumerate(row[1:]):
-                    if item == '1' or item == '2' or item == '3':
+                    if item == '0' or item == 1' or item == '2' or item == '3':
                         # create the edge
                         node_b = Node(topRow[item_position])
-                        edge = Edge(node_a, node_b, item)
+                        edge = Edge(node_a, node_b, int(item))
                         graph.addEdge(edge)
     print graph
