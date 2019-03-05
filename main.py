@@ -20,4 +20,4 @@ if __name__ == "__main__": # main method
                         node_b = Node(topRow[item_position])
                         edge = Edge(node_a, node_b, int(item))
                         graph.addEdge(edge)
-    print graph
+    print (graph)
