@@ -1,10 +1,10 @@
 import csv
 from graph import *
-        
+
 if __name__ == "__main__": # main method
     graph = Graph()
     with open('Character Counter Spreadsheet - Sheet1.csv') as csvfile:
-        topRowPosition = 1 # position of header row
+        topRowPosition = 0 # position of header row
         readRange = (2, 30) # inclusive range of rows to read
         readCSV = csv.reader(csvfile, delimiter =',')
         topRow = None
