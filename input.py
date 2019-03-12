@@ -12,6 +12,8 @@ def inputTeams():
     return heroArray
 
 def checkValidity(hero, heroArray):
+    if len(hero) == 0:
+        return False
     if hero not in heroArray: #add - and hero name is a valid hero name
         return True
     return False
