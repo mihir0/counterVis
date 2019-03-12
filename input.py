@@ -2,7 +2,7 @@
 
 def inputTeams():
     heroArray = []
-    for heroNum in range(1,9):
+    for heroNum in range(1,6):
         while True:
             hero = input("Hero " + str(heroNum) + ": ")
             if checkValidity(hero, heroArray):
