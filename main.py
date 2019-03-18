@@ -1,8 +1,8 @@
 import csv
 from graph import *
 
-if __name__ == "__main__": # main method
-    graph = Graph()
+if __name__ == "__main__":  # main method
+    """graph = Graph()
     with open('Character Counter Spreadsheet - Sheet1.csv') as csvfile:
         topRowPosition = 0 # position of header row
         readRange = (2, 30) # inclusive range of rows to read
@@ -20,4 +20,52 @@ if __name__ == "__main__": # main method
                         node_b = Node(topRow[item_position])
                         edge = Edge(node_a, node_b, item)
                         graph.addEdge(edge)
-    print (graph)
+    #print (graph)"""
+
+    with open('Character Counter Spreadsheet - Sheet1.csv') as csvfile:
+        # creating list of heroes with counters
+
+        list_heroes = []
+        topRowPosition = 0  # position of header row
+        readRange = (2, 30)  # inclusive range of rows to read
+        readCSV = csv.reader(csvfile, delimiter=',')
+        topRow = None
+        for row_num, row in enumerate(readCSV):
+            if row_num == topRowPosition:
+                topRow = row[2:]
+            if readRange[0] <= row_num <= readRange[1]:
+                row = row[1:]  # trim row
+                hero = Hero(row[0], [])
+                for item_position, item in enumerate(row[1:]):
+                    if item == '1' or item == '2' or item == '3':
+                        # create the edge
+                        counter = Hero(topRow[item_position], [])
+                        hero.add_counter(counter, item)
+                list_heroes.append(hero)
+        heroes = Heroes(list_heroes)
+        print(heroes)
+
+        # creating game
+        team1 = Heroes([])
+        team2 = Heroes([])
+        for i in range(0, 6):
+            hero = raw_input("Choose a Hero for team 1: ")
+            if heroes.is_hero(hero):
+                type(hero)
+                team1.hero_append(hero)
+            else:
+                print("invalid hero")
+                i = i - 1
+
+        for i in range(0, 6):
+            hero = raw_input("Choose a Hero for team 2: ")
+            if heroes.is_hero(hero):
+                type(hero)
+                team2.hero_append(hero)
+            else:
+                print("invalid hero")
+                i = i - 1
+        game = Game(team1, team2)
+
+        print(game.calculate_team1())
+        print(game.calculate_team2())
