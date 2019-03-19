@@ -29,7 +29,7 @@ if __name__ == "__main__":  # main method
 
         list_heroes = []
         topRowPosition = 0  # position of header row
-        readRange = (2, 30)  # inclusive range of rows to read
+        readRange = (1, 29)  # inclusive range of rows to read
         readCSV = csv.reader(csvfile, delimiter=',')
         topRow = None
         for row_num, row in enumerate(readCSV):
@@ -57,6 +57,14 @@ if __name__ == "__main__":  # main method
         teamFake1.hero_append(heroes.return_hero("Soldier: 76"))
         teamFake1.hero_append(heroes.return_hero("Reinhardt"))
 
+        teamFake2 = Heroes([])
+        teamFake2.hero_append(heroes.return_hero("Ana"))
+        teamFake2.hero_append(heroes.return_hero("Soldier: 76"))
+        teamFake2.hero_append(heroes.return_hero("Lucio"))
+        teamFake2.hero_append(heroes.return_hero("Genji"))
+        teamFake2.hero_append(heroes.return_hero("Widowmaker"))
+        teamFake2.hero_append(heroes.return_hero("Hanzo"))
+
 
         team1 = Heroes([])
         team2 = Heroes([])
@@ -79,7 +87,7 @@ if __name__ == "__main__":  # main method
                 i = i - 1
         #game = Game(team1, team2)"""
 
-        game = Game(teamFake1, teamFake1)
+        game = Game(teamFake1, teamFake2)
 
         print(game.calculate_team1())
         print(game.calculate_team2())
