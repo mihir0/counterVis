@@ -1,27 +1,58 @@
 import csv
 from graph import *
+from Hero import *
+
 
 class Game:
     def __init__(self, team1, team2):
         self.team1 = team1
         self.team2 = team2
 
-    def game(team1[], team2[]):
-        team1Total = 0
-        team2Total = 0
-        for x in range(0,6):
-            for y in range(0,6):
-                if team1[x].isCounter(team2[y]):
-                    team1Total += team1[x].returnCounterWeight(team2[y])
-                else if team2[y].isCounter(team1[x]):
-                    team2Total += team2[y].returnCounterWeight(team1[x])
-        print("Team 1 Score: " + team1Total)
-        print("Team 2 Score: " + team2Total)
-        difference = team1Total - team2Total
-        if difference==0:
-            print("The teams are evenly matched.")
-        else if difference > 0:
-            print("Team 1 has the advantage by " + difference + " points.")
-        else:
-            print("Team 2 has the advantage by " + (difference * -1) + " points.")
-    
+    def team1_select(self, hero):
+        if self.team1.size <= 6:
+            self.team1.append(hero)
+
+    def team2_select(self, hero):
+        if self.team2.size <= 6:
+            self.team2.append(hero)
+
+    def print_team1(self):
+        ans = ""
+        for hero in self.team1:
+            ans += hero.name + ", "
+        return ans
+
+    def print_team2(self):
+        ans = ""
+        for hero in self.team2:
+            ans += hero.name + ", "
+        return ans
+
+    def calculate_team1(self):
+        ans = int(0)
+        for hero in self.team2.heroes:
+            for counter in self.team1.heroes:
+                if hero.is_counter(counter):
+                    ans += hero.return_counter_weight(counter)
+        return ans
+
+    def calculate_team2(self):
+        ans = int(0)
+        for hero in self.team1.heroes:
+            for counter in self.team2.heroes:
+                if hero.is_counter(counter):
+                    ans += hero.return_counter_weight(counter)
+        return ans
+
+    def __str__(self):
+        ans = ""
+        ans += self.print_team1()
+        ans += "\n"
+        ans += self.print_team2()
+        return ans
+
+    def get_team1(self):
+        return self.team1
+
+    def get_team2(self):
+        return self.team2

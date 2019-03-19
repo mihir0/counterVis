@@ -1,5 +1,7 @@
 import csv
 from graph import *
+from game import *
+from Hero import *
 
 if __name__ == "__main__":  # main method
     """graph = Graph()
@@ -43,16 +45,26 @@ if __name__ == "__main__":  # main method
                         hero.add_counter(counter, item)
                 list_heroes.append(hero)
         heroes = Heroes(list_heroes)
-        print(heroes)
+        #print(heroes)
 
         # creating game
+
+        teamFake1 = Heroes([])
+        teamFake1.hero_append(heroes.return_hero("Mei"))
+        teamFake1.hero_append(heroes.return_hero("Tracer"))
+        teamFake1.hero_append(heroes.return_hero("Bastion"))
+        teamFake1.hero_append(heroes.return_hero("Symmetra"))
+        teamFake1.hero_append(heroes.return_hero("Soldier: 76"))
+        teamFake1.hero_append(heroes.return_hero("Reinhardt"))
+
+
         team1 = Heroes([])
         team2 = Heroes([])
-        for i in range(0, 6):
+        """for i in range(0, 6):
             hero = raw_input("Choose a Hero for team 1: ")
             if heroes.is_hero(hero):
                 type(hero)
-                team1.hero_append(hero)
+                team1.hero_append(heroes.return_hero(hero))
             else:
                 print("invalid hero")
                 i = i - 1
@@ -61,11 +73,13 @@ if __name__ == "__main__":  # main method
             hero = raw_input("Choose a Hero for team 2: ")
             if heroes.is_hero(hero):
                 type(hero)
-                team2.hero_append(hero)
+                team2.hero_append(heroes.return_hero(hero))
             else:
                 print("invalid hero")
                 i = i - 1
-        game = Game(team1, team2)
+        #game = Game(team1, team2)"""
+
+        game = Game(teamFake1, teamFake1)
 
         print(game.calculate_team1())
         print(game.calculate_team2())
