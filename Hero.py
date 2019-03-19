@@ -24,7 +24,7 @@ class Heroes:
         for each in self.heroes:
             if hero_str.lower() == each.name.lower():
                 return each
-        return "Not a f hero"
+        raise TypeError("What you typed isn't a hero: " + hero_str)
 
 
 class Hero:
@@ -49,8 +49,8 @@ class Hero:
     # prints hero's name and counters
     def __str__(self):
         ans = "<" + self.name + ">: "
-        for i in range(0, len(self.counters)):
-            ans += "(" + self.counters[i].counter.name + " | " + self.counters[i].weight + ")"
+        for each in self.counters:
+            ans += str(each)
         return ans
 
     # appends a counter to the list
@@ -74,4 +74,4 @@ class Counter:
         self.weight = int(weight)
 
     def __str__(self):
-        return "(" + self.counters.name + " | " + self.weight + ")"
+        return "(" + self.counter.name + " | " + str(self.weight) + ")"
