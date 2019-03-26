@@ -1,4 +1,17 @@
 // console.log('Hello world');
+window.onload = buildHerosList();
+
+function buildHerosList() {
+    var arr = ['Ana','Ashe','Bastion','Brigitte','D. Va','Doomfist','Genji','Hanzo','Junkrat','Lucio','Mccree','Mei','Mercy','Moira','Orisa','Pharah','Reaper','Reinhardt','Roadhog','Soldier: 76','Sombra','Symmetra','Torbjorn','Tracer','Widowmaker','Winston','Wrecking Ball','Zarya','Zenyatta'];
+    for (var i in arr) {
+        var id = arr[i]
+        var element = "<button type='button' class='list-group-item list-group-item-action' id='" + id + "'onclick=\"buttonClick('" + id + "')\">" + id + "</button>";
+        console.log(element);
+        // $("#teamOneHeros").append("<Button type='button'>" + arr[i] + "</button>");
+        $("#teamOneHeros").append(element);
+    }
+}
+
 
 function filter() {
     var strFilter = $("#myInput").val().toUpperCase();
