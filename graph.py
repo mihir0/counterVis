@@ -1,10 +1,17 @@
 class Node:
     def __init__(self, name):
         self.name = name
+
     def getName(self):
         return self.name
+
+    def setName(self, nameT):
+        name = nameT
+
     def __str__(self):
         return "<" + self.name + ">"
+
+
 class Edge:
     def __init__(self, pointA, pointB, weight):
         self.a = pointA
@@ -16,13 +23,14 @@ class Edge:
 
     def getNodes(self):
         return (self.a, self.b)
-    
+
     def edgePointsMatch(self, pointA, pointB):
         if pointA == self.a and pointB == self.b:
             return True
         if pointA == self.b and pointB == self.a:
             return True
         return False
+
 
 class Graph:
     def __init__(self):
@@ -40,23 +48,28 @@ class Graph:
 
     def hasNode(self, node):
         return node in self.nodes
+
+    def addNode(self, node):
+        self.nodes.append(node)
+
     def containsEdgePoints(self, pointA, pointB):
         # checks if edge already exists that contains the same edge points, disregards weight check
         for edge in self.edges:
             if edge.edgePointsMatch(pointA, pointB):
                 return True
         return False
+
     def getEdgeByIndex(self, index):
         return self.edges[index]
+
     def getNodeByIndex(self, index):
         return self.nodes[index]
+
     def getNodeByName(self, name):
         for node in self.nodes:
             if node.getName() == name:
                 return name
         return None
-    def addNode(self, node):
-        self.nodes.append(node)
 
     # NOTE: this method will overwrite a previously existing edge
     def addEdge(self, edge):
