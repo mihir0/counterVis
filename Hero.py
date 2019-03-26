@@ -9,6 +9,7 @@ class Heroes:
         return False
 
     def hero_append(self, hero):
+        assert isinstance(hero, Hero)
         self.heroes.append(hero)
 
     def __str__(self):
@@ -29,11 +30,13 @@ class Heroes:
 
 class Hero:
     def __init__(self, name, counters):
+        assert isinstance(name, str)
         self.name = str(name)
-        self.counters = counters;  # would receive another list of hero and weight
+        self.counters = counters  # would receive another list of hero and weight
 
     # checks if a hero is counter of the current one
     def is_counter(self, find_hero):
+        assert isinstance(find_hero, Hero)
         for i in range(0, len(self.counters)):
             if find_hero.name.lower() == self.counters[i].counter.name.lower():
                 return True
@@ -41,6 +44,7 @@ class Hero:
 
     # returns the counter weight of a hero
     def return_counter_weight(self, find_hero):
+        assert isinstance(find_hero, Hero)
         for i in range(0, len(self.counters)):
             if find_hero.name.lower() == self.counters[i].counter.name.lower():
                 return self.counters[i].weight
@@ -55,6 +59,8 @@ class Hero:
 
     # appends a counter to the list
     def add_counter(self, hero_counter, weight):
+        assert isinstance(weight, int)
+        assert isinstance(hero_counter, Hero)
         self.counters.append(Counter(hero_counter, weight))
 
     # setters and getters
@@ -70,6 +76,8 @@ class Hero:
 
 class Counter:
     def __init__(self, counter, weight):
+        assert isinstance(counter, Hero)
+        assert isinstance(weight, int)
         self.counter = counter
         self.weight = int(weight)
 

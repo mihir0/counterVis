@@ -1,5 +1,5 @@
 import csv
-from graph import *
+#  from Map import *
 from game import *
 from Hero import *
 
@@ -42,12 +42,11 @@ if __name__ == "__main__":  # main method
                     if item == '1' or item == '2' or item == '3':
                         # create the edge
                         counter = Hero(topRow[item_position], [])
-                        hero.add_counter(counter, item)
+                        hero.add_counter(counter, int(item))
                 list_heroes.append(hero)
         heroes = Heroes(list_heroes)
-        #print(heroes)
-
-        # creating game
+        #  print(heroes)
+        #  creating game
 
         teamFake1 = Heroes([])
         teamFake1.hero_append(heroes.return_hero("Mei"))
@@ -65,10 +64,10 @@ if __name__ == "__main__":  # main method
         teamFake2.hero_append(heroes.return_hero("Widowmaker"))
         teamFake2.hero_append(heroes.return_hero("Hanzo"))
 
-
-        team1 = Heroes([])
+        #  does individual input
+        """team1 = Heroes([])
         team2 = Heroes([])
-        """for i in range(0, 6):
+        for i in range(0, 6):
             hero = raw_input("Choose a Hero for team 1: ")
             if heroes.is_hero(hero):
                 type(hero)
@@ -86,8 +85,9 @@ if __name__ == "__main__":  # main method
                 print("invalid hero")
                 i = i - 1
         #game = Game(team1, team2)"""
-
-        game = Game(teamFake1, teamFake2)
+        maps = Maps([])
+        the_map = Map("A map", [])
+        game = Game(teamFake1, teamFake2, the_map)
 
         print(game.calculate_team1())
         print(game.calculate_team2())
