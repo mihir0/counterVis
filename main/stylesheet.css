@@ -1,0 +1,8 @@
+button:active {
+    background-color: blue !important;
+    /* color: red; */
+}
+
+.clicked {
+    background-color: rgb(177, 199, 238) !important;
+}
