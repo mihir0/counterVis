@@ -1,12 +1,14 @@
 // console.log('Hello world');
 window.onload = buildHerosList();
+var teamOneSelection = '';
+
 
 function buildHerosList() {
     var arr = ['Ana','Ashe','Bastion','Brigitte','D. Va','Doomfist','Genji','Hanzo','Junkrat','Lucio','Mccree','Mei','Mercy','Moira','Orisa','Pharah','Reaper','Reinhardt','Roadhog','Soldier: 76','Sombra','Symmetra','Torbjorn','Tracer','Widowmaker','Winston','Wrecking Ball','Zarya','Zenyatta'];
     for (var i in arr) {
         var id = arr[i]
         var element = "<button type='button' class='list-group-item list-group-item-action hero-item' id='" + id + "'onclick=\"buttonClick('" + id + "')\">" + id + "</button>";
-        console.log(element);
+        // console.log(element);
         $("#teamOneHeros").append(element);
     }
 }
@@ -31,4 +33,12 @@ function buttonClick(id) {
         buttons[i].classList.remove("clicked");
     }
     document.getElementById(id).classList.add("clicked");
+    teamOneSelection = id;
+}
+
+function addClick(team) {
+    console.log(teamOneSelection);
+    var element = "<span class='badge badge-pill badge-primary'>" + teamOneSelection + "</span>";
+    console.log(element);
+    $("#teamOneSelectedHeros").append(element);
 }

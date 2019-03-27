@@ -26,9 +26,16 @@ button:active {
 .add-button {
     margin-top: 20px;
 }
-/* .list-group{
-    max-height: 300px;
-    margin-bottom: 100px;
-    overflow:scroll;
-    -webkit-overflow-scrolling: touch;
-} */
+
+.badge {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.selectionPanel {
+    margin-top: 20px;
+}
