@@ -3,6 +3,32 @@ button:active {
     /* color: red; */
 }
 
+
+
 .clicked {
     background-color: rgb(177, 199, 238) !important;
 }
+
+.hero-item {
+    min-height: 40px;
+    /* max-height: 7vh; */
+    text-anchor: bottom;
+
+}
+
+.hero-list {
+    height: 60vh;
+    overflow-y: scroll;
+    /* padding: 20px; */
+    /* margin: 0 0 0 0 !important; */
+}
+
+.add-button {
+    margin-top: 20px;
+}
+/* .list-group{
+    max-height: 300px;
+    margin-bottom: 100px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+} */

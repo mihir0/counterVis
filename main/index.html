@@ -11,13 +11,23 @@
     <link rel="stylesheet" type="text/css" href="./stylesheet.css">
   </head>
   <body>
-    <div class="col-6">
-        <div class="list-group" id="teamOneHeros">
-            <input type="text" class="form-control" placeholder="Search..." aria-label="Search" id="myInput" onkeyup="filter()">
-            <button type="button" class="list-group-item list-group-item-action" id="Hero One" onclick="buttonClick('Hero One')">Hero One</button>
-            <button type="button" class="list-group-item list-group-item-action" id="Hero Two" onclick="buttonClick('Hero Two')" >Hero Two</button>
-            <button type="button" class="list-group-item list-group-item-action" id="Hero Three" onclick="buttonClick('Hero Three')">Hero Three</button>
-        </div>        
+    <div class="col-3">
+      <div>
+        <span>
+          <!-- <div style="height: 40px;">
+            <i class="glyphicon glyphicon-search"></i>
+          </div> -->
+          
+        <input type="text" class="form-control" placeholder="Search..." aria-label="Search" id="myInput" onkeyup="filter()">
+
+        </span>
+      </div>
+        <div class="list-group hero-list" id="teamOneHeros">
+            <!-- Buttons will be created in JS like below: -->
+            <!-- <button type="button" class="list-group-item list-group-item-action hero-item" id="Hero One" onclick="buttonClick('Hero One')">Hero One</button> -->
+        </div>
+        <button type="button" class="btn btn-primary add-button" id="addTeamOne">Add</button>
+        
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
