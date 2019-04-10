@@ -3,30 +3,8 @@ import csv
 from game import *
 from Hero import *
 
-if __name__ == "__main__":  # main method
-    """graph = Graph()
+if __name__ == "__main__":
     with open('Character Counter Spreadsheet - Sheet1.csv') as csvfile:
-        topRowPosition = 0 # position of header row
-        readRange = (2, 30) # inclusive range of rows to read
-        readCSV = csv.reader(csvfile, delimiter =',')
-        topRow = None
-        for row_num, row in enumerate(readCSV):
-            if row_num == topRowPosition:
-                topRow = row[2:]
-            if row_num >= readRange[0] and row_num <= readRange[1]:
-                row = row[1:] #trim row
-                node_a = Node(row[0])
-                for item_position, item in enumerate(row[1:]):
-                    if item == '1' or item == '2' or item == '3':
-                        # create the edge
-                        node_b = Node(topRow[item_position])
-                        edge = Edge(node_a, node_b, item)
-                        graph.addEdge(edge)
-    #print (graph)"""
-
-    with open('Character Counter Spreadsheet - Sheet1.csv') as csvfile:
-        # creating list of heroes with counters
-
         list_heroes = []
         topRowPosition = 0  # position of header row
         readRange = (1, 29)  # inclusive range of rows to read
@@ -48,7 +26,7 @@ if __name__ == "__main__":  # main method
         #  print(heroes)
         #  creating game
 
-        teamFake1 = Heroes([])
+        teamFake1 = Heroes([]) 
         teamFake1.hero_append(heroes.return_hero("Mei"))
         teamFake1.hero_append(heroes.return_hero("Tracer"))
         teamFake1.hero_append(heroes.return_hero("Bastion"))
@@ -65,7 +43,7 @@ if __name__ == "__main__":  # main method
         teamFake2.hero_append(heroes.return_hero("Hanzo"))
 
         #  does individual input
-        """team1 = Heroes([])
+        team1 = Heroes([])
         team2 = Heroes([])
         for i in range(0, 6):
             hero = raw_input("Choose a Hero for team 1: ")
@@ -84,10 +62,10 @@ if __name__ == "__main__":  # main method
             else:
                 print("invalid hero")
                 i = i - 1
-        #game = Game(team1, team2)"""
+        game = Game(team1, team2)
         maps = Maps([])
         the_map = Map("A map", [])
-        game = Game(teamFake1, teamFake2, the_map)
+        game = Game(team1, team2, the_map)
 
         print(game.calculate_team1())
         print(game.calculate_team2())
