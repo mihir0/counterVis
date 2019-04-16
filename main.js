@@ -1,6 +1,7 @@
-var Heroes = require('./hero.js').Heroes;
+// import { Heroes } from './Hero.js'; uncomment once this is working
+window.onload = main();
 function main() {
-    var hereos = Heroes.l
-    var teamFake1 = Heroes.__init__();
-    teamFake1.hero_append()
+    console.log("Main Function Started");
+    // var hereos = Heroes();
+    // console.log(hereos.__str__());
 }
