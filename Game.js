@@ -75,7 +75,7 @@ export class Game {
     
     toString() {
         var ans = "///////TEAM 1///////\n";
-        ans += self.team1.toString(); //also not sure how to do str()
+        ans += self.team1.toString(); 
         ans += "\n///////TEAM 2///////\n";
         ans += self.team2.toString();
         return ans;
