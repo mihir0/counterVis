@@ -1,5 +1,3 @@
-//don't know what needs to be imported
-//also should line 3 be export var or just var
 export class Game {
     constructor(team1, team2, the_map) {
         self.team1 = team1;
