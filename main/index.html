@@ -15,20 +15,41 @@
       <div class="container">
           <div class="jumbotron">
             <h1>Team 1</h1> 
-            <div id="teamOneSelectedHeros">
+            <div id="teamOneSelectedHeroes">
               <!-- Pill badges will be created in JS like bellow: -->
               <!-- <span class="badge badge-pill badge-primary">Primary</span> -->
             </div>
             <div class="selectionPanel">
               <span>
-                <input type="text" class="form-control" placeholder="Search..." aria-label="Search" id="myInput" onkeyup="filter()">
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Search" id="input1" onkeyup="filter(1)">
               </span>
             </div>
-            <div class="list-group hero-list" id="teamOneHeros">
+            <div class="list-group hero-list" id="teamOneHeroes">
               <!-- Buttons will be created in JS like below: -->
               <!-- <button type="button" class="list-group-item list-group-item-action hero-item" id="Hero One" onclick="buttonClick('Hero One')">Hero One</button> -->
             </div>
             <button type="button" class="btn btn-primary add-button" id="addTeamOne" onclick="addClick(1)">Add</button>
+          </div>
+        </div>
+    </div>
+    <div class="col-5">
+      <div class="container">
+          <div class="jumbotron">
+            <h1>Team 2</h1> 
+            <div id="teamTwoSelectedHeroes">
+              <!-- Pill badges will be created in JS like bellow: -->
+              <!-- <span class="badge badge-pill badge-primary">Primary</span> -->
+            </div>
+            <div class="selectionPanel">
+              <span>
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Search" id="input2" onkeyup="filter(2)">
+              </span>
+            </div>
+            <div class="list-group hero-list" id="teamTwoHeroes">
+              <!-- Buttons will be created in JS like below: -->
+              <!-- <button type="button" class="list-group-item list-group-item-action hero-item" id="Hero One" onclick="buttonClick('Hero One')">Hero One</button> -->
+            </div>
+            <button type="button" class="btn btn-primary add-button" id="addTeamTwo" onclick="addClick(2)">Add</button>
           </div>
         </div>
     </div>
