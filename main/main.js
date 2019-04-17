@@ -26,10 +26,10 @@ Called when user types in search box. Filters which heroes are visible on list.
 */
 function filter(team) {
     if (team == 1) {
-        var strFilter = $("#myInput").val().toUpperCase();
+        var strFilter = $("#input1").val().toUpperCase();
         var heroes = document.getElementById("teamOneHeroes").getElementsByTagName("button");
     } else if (team == 2) {
-        var strFilter = $("myInput").val().toUpperCase();
+        var strFilter = $("#input2").val().toUpperCase();
         var heroes = document.getElementById("teamTwoHeroes").getElementsByTagName("button");
     }
     // console.log(filter);
