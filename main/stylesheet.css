@@ -3,8 +3,6 @@ button:active {
     /* color: red; */
 }
 
-
-
 .clicked {
     background-color: rgb(177, 199, 238) !important;
 }

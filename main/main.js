@@ -52,7 +52,11 @@ function buttonClick(id) {
         buttons[i].classList.remove("clicked");
     }
     document.getElementById(id).classList.add("clicked");
-    teamOneSelection = id;
+    if (id.substring(id.length - 2, id.length) == "_1") {
+        teamOneSelection = id.substring(0, id.length-2);
+    } else if (id.substring(id.length - 2, id.length) == "_2") {
+        teamTwoSelection = id.substring(0, id.length-2);
+    }
 }
 
 /*
@@ -66,7 +70,7 @@ function addClick(team) {
         $("#teamOneSelectedHeroes").append(element);
     } else if (team == 2) {
         console.log(teamTwoSelection);
-        var element = "<span class='badge badge-pill badge-primary'>" + teamTwoSelection + "</span>";
+        var element = "<span class='badge badge-pill badge-warning'>" + teamTwoSelection + "</span>";
         console.log(element);
         $("#teamTwoSelectedHeroes").append(element);
     }
