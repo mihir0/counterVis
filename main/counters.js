@@ -1,4 +1,4 @@
-{
+export var counters = {
     "Ana": {
       "FIELD1": "Ana",
       "Ana": "x",
@@ -671,7 +671,7 @@
       "Zarya": "0",
       "Zenyatta": "0"
     },
-    "Symmetra:" {
+    "Symmetra": {
       "FIELD1": "Symmetra",
       "Ana": "0",
       "Ashe": "0",

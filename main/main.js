@@ -1,12 +1,19 @@
-// console.log('Hello world');
-window.onload = buildHeroesList();
+import {counters} from "./counters.js";
+// console.log('succesfully imported');
+// console.log(counters);
 var teamOneSelection = '';
 var teamTwoSelection = '';
+var team1 = []; //stores selected characters
+var team2 = [];
+var test = {"key": "value"};
+window.onload = buildHeroesList();
 
 /*
 This function generates the HTML list that contains all the hero names contained in arr. This list is made up of clickable buttons with a callback function.
 */
 function buildHeroesList() {
+    console.log("building list");
+    console.log(counters);
     var arr = ['Ana','Ashe','Bastion','Brigitte','D. Va','Doomfist','Genji','Hanzo','Junkrat','Lucio','Mccree','Mei','Mercy','Moira','Orisa','Pharah','Reaper','Reinhardt','Roadhog','Soldier: 76','Sombra','Symmetra','Torbjorn','Tracer','Widowmaker','Winston','Wrecking Ball','Zarya','Zenyatta'];
     for (var i in arr) {
         var id = arr[i]
@@ -24,7 +31,7 @@ function buildHeroesList() {
 /*
 Called when user types in search box. Filters which heroes are visible on list.
 */
-function filter(team) {
+window.filter = function filter(team) {
     if (team == 1) {
         var strFilter = $("#input1").val().toUpperCase();
         var heroes = document.getElementById("teamOneHeroes").getElementsByTagName("button");
@@ -46,7 +53,7 @@ function filter(team) {
 /*
 When hero is clicked, make sure they are selected.
 */
-function buttonClick(id) {
+window.buttonClick = function buttonClick(id) {
     var buttons = document.getElementsByTagName("button");
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("clicked");
@@ -62,16 +69,35 @@ function buttonClick(id) {
 /*
 Connected to add button. Adds hero to team. Also creates an HTML pill badge with hero name.
 */
-function addClick(team) {
+window.addClick = function addClick(team) {
     if (team == 1) {
         console.log(teamOneSelection);
         var element = "<span class='badge badge-pill badge-primary'>" + teamOneSelection + "</span>";
         console.log(element);
         $("#teamOneSelectedHeroes").append(element);
+        team1.push(teamOneSelection);
     } else if (team == 2) {
         console.log(teamTwoSelection);
         var element = "<span class='badge badge-pill badge-warning'>" + teamTwoSelection + "</span>";
         console.log(element);
         $("#teamTwoSelectedHeroes").append(element);
+        team2.push(teamTwoSelection);
     }
+}
+
+window.calculateScore = function calculateScore(team) {
+    var a = (team == 1) ? team1 : team2;
+    var b = (team == 1) ? team2 : team1;
+    // console.log(team1);
+    // console.log(team2);
+    // console.log(a);
+    // console.log(b);
+    var score = 0;
+    a.forEach((a) => {
+        b.forEach((b) => {
+            console.log(counters[a][b]);
+            score += Number(counters[a][b]);
+        });
+    });
+    return score;
 }
