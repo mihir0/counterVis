@@ -82,7 +82,7 @@ window.addClick = function addClick(team) {
     } else if (team == 2) {
         if (teamTwoSelection === '') {return;}
         console.log(teamTwoSelection);
-        var element = "<span class='badge badge-pill badge-warning'>" + teamTwoSelection + "</span>";
+        var element = "<span class='badge badge-pill badge-danger'>" + teamTwoSelection + "</span>";
         // console.log(element);
         $("#teamTwoSelectedHeroes").append(element);
         team2.push(teamTwoSelection);
@@ -118,6 +118,8 @@ window.calculateScore = function calculateScore(team) {
 window.updateMeters = function updateMeters() {
     let score1 = calculateScore(1);
     let score2 = calculateScore(2);
-    $("#progress1").width(score1 * 10).text(score1);
-    $("#progress2").width(score2 * 10).text(score2);
+    // $("#progress1").width(score1 * 10).text(score1);
+    // $("#progress2").width(score2 * 10).text(score2);
+    $("#progress1_").width(String(score1 / (score1 + score2) * 100) + "%").text(score1);
+    $("#progress2_").width(String(score2 / (score1 + score2) * 100) + "%").text(score2);
 }

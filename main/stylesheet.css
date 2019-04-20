@@ -15,7 +15,7 @@ button:active {
 }
 
 .hero-list {
-    height: 60vh;
+    height: 50vh;
     overflow-y: scroll;
     /* padding: 20px; */
     /* margin: 0 0 0 0 !important; */
@@ -37,4 +37,9 @@ button:active {
 
 .selectionPanel {
     margin-top: 20px;
+}
+
+.progress {
+    height: 50px;
+    font-size: 2em;
 }
