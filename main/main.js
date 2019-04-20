@@ -58,8 +58,7 @@ window.buttonClick = function buttonClick(id) {
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("clicked");
     }
-    // document.getElementById(id).classList.add("clicked");
-
+ 
     if (id.substring(id.length - 2, id.length) == "_1") {
         teamOneSelection = id.substring(0, id.length-2);
     } else if (id.substring(id.length - 2, id.length) == "_2") {
@@ -88,8 +87,12 @@ window.addClick = function addClick(team) {
         $("#teamTwoSelectedHeroes").append(element);
         team2.push(teamTwoSelection);
     }
+    updateMeters();
 }
 
+/*
+* Calculates the score of a team.
+*/
 window.calculateScore = function calculateScore(team) {
     var a = (team == 1) ? team1 : team2;
     var b = (team == 1) ? team2 : team1;
@@ -100,12 +103,21 @@ window.calculateScore = function calculateScore(team) {
     var score = 0;
     a.forEach((a) => {
         b.forEach((b) => {
+            console.log("a: " +  a + " b: " + b);
             let w = counters[a][b];
-            console.log(w)
+            console.log("w: " + w)
             if (w !== 'x') {
                 score += Number(w);
             }
         });
     });
     return score;
+}
+
+
+window.updateMeters = function updateMeters() {
+    let score1 = calculateScore(1);
+    let score2 = calculateScore(2);
+    $("#progress1").width(score1 * 10).text(score1);
+    $("#progress2").width(score2 * 10).text(score2);
 }

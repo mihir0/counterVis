@@ -479,7 +479,7 @@ export var counters = {
       "Zarya": "0",
       "Zenyatta": "0"
     },
-    "Phara": {
+    "Pharah": {
       "FIELD1": "Pharah",
       "Ana": "1",
       "Ashe": "1",
