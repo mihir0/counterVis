@@ -5,7 +5,6 @@ var teamOneSelection = '';
 var teamTwoSelection = '';
 var team1 = []; //stores selected characters
 var team2 = [];
-var test = {"key": "value"};
 window.onload = buildHeroesList();
 
 /*
@@ -54,16 +53,20 @@ window.filter = function filter(team) {
 When hero is clicked, make sure they are selected.
 */
 window.buttonClick = function buttonClick(id) {
+    // console.log(id);
     var buttons = document.getElementsByTagName("button");
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("clicked");
     }
-    document.getElementById(id).classList.add("clicked");
+    // document.getElementById(id).classList.add("clicked");
+
     if (id.substring(id.length - 2, id.length) == "_1") {
         teamOneSelection = id.substring(0, id.length-2);
     } else if (id.substring(id.length - 2, id.length) == "_2") {
         teamTwoSelection = id.substring(0, id.length-2);
     }
+    if (teamOneSelection !== '') { document.getElementById(teamOneSelection + "_1").classList.add("clicked"); }
+    if (teamTwoSelection !== '') { document.getElementById(teamTwoSelection + "_2").classList.add("clicked"); }
 }
 
 /*
@@ -71,15 +74,17 @@ Connected to add button. Adds hero to team. Also creates an HTML pill badge with
 */
 window.addClick = function addClick(team) {
     if (team == 1) {
+        if (teamOneSelection === '') {return;}
         console.log(teamOneSelection);
         var element = "<span class='badge badge-pill badge-primary'>" + teamOneSelection + "</span>";
-        console.log(element);
+        // console.log(element);
         $("#teamOneSelectedHeroes").append(element);
         team1.push(teamOneSelection);
     } else if (team == 2) {
+        if (teamTwoSelection === '') {return;}
         console.log(teamTwoSelection);
         var element = "<span class='badge badge-pill badge-warning'>" + teamTwoSelection + "</span>";
-        console.log(element);
+        // console.log(element);
         $("#teamTwoSelectedHeroes").append(element);
         team2.push(teamTwoSelection);
     }
@@ -95,8 +100,11 @@ window.calculateScore = function calculateScore(team) {
     var score = 0;
     a.forEach((a) => {
         b.forEach((b) => {
-            console.log(counters[a][b]);
-            score += Number(counters[a][b]);
+            let w = counters[a][b];
+            console.log(w)
+            if (w !== 'x') {
+                score += Number(w);
+            }
         });
     });
     return score;
