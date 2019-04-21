@@ -1,6 +1,4 @@
 import {counters} from "./counters.js";
-// console.log('succesfully imported');
-// console.log(counters);
 var teamOneSelection = '';
 var teamTwoSelection = '';
 var team1 = []; //stores selected characters
@@ -72,6 +70,7 @@ window.buttonClick = function buttonClick(id) {
 Connected to add button. Adds hero to team. Also creates an HTML pill badge with hero name.
 */
 window.addClick = function addClick(team) {
+    let noLimitsActivated = ($("#noLimitsCheck").prop("checked") == true); //boolean: is noLimits checked or not
     if (team == 1) {
         if (teamOneSelection === '') {return;}
         console.log(teamOneSelection);
@@ -84,7 +83,8 @@ window.addClick = function addClick(team) {
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("clicked");
         }
-        document.getElementById(teamOneSelection + "_1").setAttribute("disabled", true);
+        if (!noLimitsActivated) { document.getElementById(teamOneSelection + "_1").setAttribute("disabled", true); }
+        teamOneSelection = "";
 
     } else if (team == 2) {
         if (teamTwoSelection === '') {return;}
@@ -98,10 +98,36 @@ window.addClick = function addClick(team) {
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("clicked");
         }
-        document.getElementById(teamTwoSelection + "_2").setAttribute("disabled", true);
+        if (!noLimitsActivated) { document.getElementById(teamTwoSelection + "_2").setAttribute("disabled", true) };
+        teamTwoSelection = "";
     }
     updateMeters();
 }
+
+/*
+Called when "no limits" checkbox is clicked. When no limits mode is enabled, the same hero can be added infinitely to a team.
+*/
+window.noLimitsClicked = function noLimitsClicked() {
+    if ($("#noLimitsCheck").prop("checked") == true) {
+        //Clear all disabled buttons
+        var buttons = document.getElementsByTagName("button");
+        for (let i = 0; i < buttons.length; i++) {
+            // buttons[i].setAttribute("disabled", false);
+            buttons[i].disabled = false;
+        }
+    } else {
+        // console.log('unchecked');
+        // disable buttons if hero is already on team
+        team1.forEach((hero) => {
+            document.getElementById(hero + "_1").setAttribute("disabled", true);
+        });
+        team2.forEach((hero) => {
+            document.getElementById(hero + "_2").setAttribute("disabled", true);
+        });
+    }
+    updateMeters() //calling this to update suggested field
+}
+
 
 /*
 * Calculates the score of a team.
@@ -143,15 +169,18 @@ window.findOptimal = function findOptimal(team) {
     let b = (team == 1) ? team2 : team1;
     let score = calculateScore(a, b) - calculateScore(b, a); //NOTE: this is not RAW score. This is score of team A - score of team B.
     let suggested = "";
+    let noLimitsActivated = ($("#noLimitsCheck").prop("checked") == true);
     for (var item in counters) {
         let temp = a.slice();
         temp.push(item);
         // console.log("a: " + a);
         // console.log("temp: " + temp);
-        let currentScore = calculateScore(temp, b) - calculateScore(b, temp);
-        if (currentScore > score) {
-            score = currentScore;
-            suggested = item;
+        if ((a.indexOf(item) == -1) || (noLimitsActivated)) { //if noLimits is not active, then ensure item does not exist in team already.
+            let currentScore = calculateScore(temp, b) - calculateScore(b, temp);
+            if (currentScore > score) {
+                score = currentScore;
+                suggested = item;
+            }
         }
     }
     // console.log("Suggested: " + suggested + " new score: " + score);
