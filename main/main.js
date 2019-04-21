@@ -93,19 +93,15 @@ window.addClick = function addClick(team) {
 /*
 * Calculates the score of a team.
 */
-window.calculateScore = function calculateScore(team) {
-    var a = (team == 1) ? team1 : team2;
-    var b = (team == 1) ? team2 : team1;
-    // console.log(team1);
-    // console.log(team2);
-    // console.log(a);
-    // console.log(b);
+window.calculateScore = function calculateScore(teamA, teamB) {
+    var a = teamA;
+    var b = teamB;
     var score = 0;
     a.forEach((a) => {
         b.forEach((b) => {
-            console.log("a: " +  a + " b: " + b);
+            // console.log("a: " +  a + " b: " + b);
             let w = counters[a][b];
-            console.log("w: " + w)
+            // console.log("w: " + w)
             if (w !== 'x') {
                 score += Number(w);
             }
@@ -114,12 +110,37 @@ window.calculateScore = function calculateScore(team) {
     return score;
 }
 
-
+/*
+* Calculates the strength of both teams and updates the meter in the middle.
+*/
 window.updateMeters = function updateMeters() {
-    let score1 = calculateScore(1);
-    let score2 = calculateScore(2);
-    // $("#progress1").width(score1 * 10).text(score1);
-    // $("#progress2").width(score2 * 10).text(score2);
+    let score1 = calculateScore(team1, team2);
+    let score2 = calculateScore(team2, team1);
     $("#progress1_").width(String(score1 / (score1 + score2) * 100) + "%").text(score1);
     $("#progress2_").width(String(score2 / (score1 + score2) * 100) + "%").text(score2);
+
+    // Suggested code:
+    $("#suggested1").text("Suggested: " + findOptimal(1));
+    $("#suggested2").text("Suggested: " + findOptimal(2));
+
+}
+
+window.findOptimal = function findOptimal(team) {
+    let a = (team == 1) ? team1 : team2;
+    let b = (team == 1) ? team2 : team1;
+    let score = calculateScore(a, b) - calculateScore(b, a); //NOTE: this is not RAW score. This is score of team A - score of team B.
+    let suggested = "";
+    for (var item in counters) {
+        let temp = a.slice();
+        temp.push(item);
+        // console.log("a: " + a);
+        // console.log("temp: " + temp);
+        let currentScore = calculateScore(temp, b) - calculateScore(b, temp);
+        if (currentScore > score) {
+            score = currentScore;
+            suggested = item;
+        }
+    }
+    // console.log("Suggested: " + suggested + " new score: " + score);
+    return suggested;
 }
