@@ -9,6 +9,14 @@ button:disabled {
     background-color: red;
 } */
 
+.form-check-input {
+    width: 20px;
+    height: 20px;
+}
+.form-check-label {
+    padding-left: 15px;
+}
+
 .clicked {
     background-color: rgb(177, 199, 238) !important;
 }
