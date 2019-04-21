@@ -2,6 +2,12 @@ button:active {
     background-color: blue !important;
     /* color: red; */
 }
+button:disabled {
+    background-color: lightgray !important;
+}
+/* .disabled-button {
+    background-color: red;
+} */
 
 .clicked {
     background-color: rgb(177, 199, 238) !important;

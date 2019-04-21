@@ -39,7 +39,7 @@ window.filter = function filter(team) {
         var heroes = document.getElementById("teamTwoHeroes").getElementsByTagName("button");
     }
     // console.log(filter);
-    for (i = 0; i < heroes.length; i++) {
+    for (var i = 0; i < heroes.length; i++) {
         var strValue = heroes[i].textContent || heroes[i].innerText;
         if (strValue.toUpperCase().indexOf(strFilter) > -1) {
             heroes[i].style.display = "";
@@ -76,9 +76,16 @@ window.addClick = function addClick(team) {
         if (teamOneSelection === '') {return;}
         console.log(teamOneSelection);
         var element = "<span class='badge badge-pill badge-primary'>" + teamOneSelection + "</span>";
-        // console.log(element);
         $("#teamOneSelectedHeroes").append(element);
         team1.push(teamOneSelection);
+        // console.log(element);
+        //CLEAR
+        var buttons = $("#teamOneHeroes").children();
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("clicked");
+        }
+        document.getElementById(teamOneSelection + "_1").setAttribute("disabled", true);
+
     } else if (team == 2) {
         if (teamTwoSelection === '') {return;}
         console.log(teamTwoSelection);
@@ -86,6 +93,12 @@ window.addClick = function addClick(team) {
         // console.log(element);
         $("#teamTwoSelectedHeroes").append(element);
         team2.push(teamTwoSelection);
+        //CLEAR
+        var buttons = $("#teamTwoHeroes").children();
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("clicked");
+        }
+        document.getElementById(teamTwoSelection + "_2").setAttribute("disabled", true);
     }
     updateMeters();
 }
